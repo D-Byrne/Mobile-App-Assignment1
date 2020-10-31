@@ -2,12 +2,17 @@ package org.wit.soulsbuildplanner.console.main
 
 import mu.KotlinLogging
 import org.wit.soulsbuildplanner.console.models.BuildModel
+import org.wit.soulsbuildplanner.console.models.BuildModelMemStore
+import org.wit.soulsbuildplanner.console.views.BuildView
 
 private val logger = KotlinLogging.logger {}
 
 //var buildModel = BuildModel()
 
-val buildModels = ArrayList<BuildModel>()
+//val buildModels = ArrayList<BuildModel>()
+
+val buildModels = BuildModelMemStore()
+val buildView = BuildView()
 
 fun main(args: Array<String>){
     logger.info { "Launching Souls Build Planner"}
@@ -16,11 +21,11 @@ fun main(args: Array<String>){
     var input: Int
 
     do{
-        input = menu()
+        input = buildView.menu()
         when(input){
-            1 -> createBuild()
+            1 -> addBuild()
             2 -> updateBuild()
-            3 -> listAllBuilds()
+            3 -> buildView.listBuildModels(buildModels)
             4 -> searchBuildModel()
             -99 -> dummyData()
             -1 -> println("Exiting App")
@@ -31,107 +36,44 @@ fun main(args: Array<String>){
     logger.info{ "Shutting Down Souls Build Planner" }
 }
 
-fun menu() : Int {
-
-    var option : Int
-    var input: String? = null
-
-    println("Main Menu")
-    println(" 1. Create Build")
-    println(" 2. Update Build")
-    println(" 3. List all Builds")
-    println(" 4. Search Builds")
-    println("-1. Exit")
-    println()
-    print("Enter an integer : ")
-    input = readLine()!!
-    option = if (input.toIntOrNull() != null && !input.isEmpty())
-        input.toInt()
-    else
-        -9
-    return option
-}
-
-fun createBuild(){
+fun addBuild(){
     var aBuildModel = BuildModel()
-    println("Add Build")
-    println()
-    print("Enter Build Title : ")
-    aBuildModel.buildTitle = readLine()!!
-    print("Enter Vitality : ")
-    aBuildModel.vitality = readLine()!!.toInt()
-    print("Enter Endurance : ")
-    aBuildModel.endurance = readLine()!!.toInt()
 
-    if (aBuildModel.buildTitle.isNotEmpty() && aBuildModel.vitality != null && aBuildModel.endurance != null ){
-        aBuildModel.id = buildModels.size.toLong()
-        buildModels.add(aBuildModel.copy())
-        logger.info("Build Added : [ $aBuildModel ]")
-    }
+    if(buildView.addBuildModelData(aBuildModel))
+        buildModels.create(aBuildModel)
     else
-        logger.info("Buid Not Added")
+        logger.info("Build Not Added...")
 }
 
 fun updateBuild(){
-    println("Update Build")
-    println()
-    listAllBuilds()
-    var  searchId = getId()
+    buildView.listBuildModels(buildModels)
+    var searchId = buildView.getId()
     val aBuildModel = search(searchId)
 
     if(aBuildModel != null){
-        print("Enter a new title for [ " + aBuildModel.buildTitle + " ] : ")
-        aBuildModel.buildTitle = readLine()!!
-        print("Enter a new value for Vitality[ " + aBuildModel.vitality + " ] : ")
-        aBuildModel.vitality = readLine()!!.toInt()
-        print("Enter a new value for Endurance[ " + aBuildModel.endurance + " ] : ")
-        aBuildModel.endurance = readLine()!!.toInt()
-        println(
-            "You updated [ " + aBuildModel.buildTitle + " ] for build title " +
-                    "and [ " + aBuildModel.vitality + " ] for vitality " +
-                    "and [ " + aBuildModel.endurance + " ] for endurance"
-        )
+        if(buildView.updateBuildModelData(aBuildModel)){
+            buildModels.update(aBuildModel)
+            buildView.showBuild(aBuildModel)
+            logger.info("Build Updated : [ $aBuildModel ]")
+        }
+        else
+            logger.info("Build Not updated...")
     }
-    else
-        println("Build Not Updated...")
-}
 
-fun listAllBuilds(){
-    println("List All Builds")
-    println()
-    buildModels.forEach { logger.info("${it}") }
-    println()
 }
 
 fun searchBuildModel(){
-    var searchId = getId()
-    val aBuildModel = search(searchId)
-
-    if(aBuildModel != null)
-        println("Build Details [ $aBuildModel ]")
-    else
-        println("Build Not Found...")
-}
-
-fun getId() : Long {
-    var strId : String?
-    var searchId : Long
-    print("Enter id to Search/Update : ")
-    strId = readLine()!!
-    searchId = if (strId.toLongOrNull() != null && !strId.isEmpty())
-        strId.toLong()
-    else
-        -9
-    return searchId
+    val aBuildModel = search(buildView.getId())!!
+    buildView.showBuild(aBuildModel)
 }
 
 fun search(id: Long) : BuildModel? {
-    var foundBuildModel: BuildModel? = buildModels.find { p -> p.id == id }
-    return foundBuildModel
+    var foundBuild = buildModels.findOne(id)
+    return foundBuild
 }
 
 fun dummyData() {
-    buildModels.add(BuildModel(1, "Quality",25 ,35 ))
-    buildModels.add(BuildModel(2, "Strength", 25, 40))
-    buildModels.add(BuildModel(3, "Dexterity", 30, 40))
+    buildModels.create(BuildModel(1, "Quality",25 ,35 ))
+    buildModels.create(BuildModel(2, "Strength", 25, 40))
+    buildModels.create(BuildModel(3, "Dexterity", 30, 40))
 }
