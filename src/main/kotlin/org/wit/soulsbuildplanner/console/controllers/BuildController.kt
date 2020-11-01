@@ -1,6 +1,7 @@
 package org.wit.soulsbuildplanner.console.controllers
 
 import mu.KotlinLogging
+import org.wit.soulsbuildplanner.console.models.BuildJSONStore
 import org.wit.soulsbuildplanner.console.models.BuildModelMemStore
 import org.wit.soulsbuildplanner.console.models.BuildModel
 import org.wit.soulsbuildplanner.console.views.BuildView
@@ -9,7 +10,7 @@ import org.wit.soulsbuildplanner.console.views.BuildView
 class BuildController {
 
     val logger = KotlinLogging.logger {}
-    val builds = BuildModelMemStore()
+    val builds = BuildJSONStore()
     val buildView = BuildView()
 
     init {

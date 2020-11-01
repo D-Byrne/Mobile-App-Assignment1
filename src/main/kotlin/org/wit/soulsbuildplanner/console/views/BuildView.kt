@@ -1,9 +1,8 @@
 package org.wit.soulsbuildplanner.console.views
 
-import mu.KotlinLogging
-import org.wit.soulsbuildplanner.console.models.BuildModelMemStore
+//import org.wit.soulsbuildplanner.console.models.BuildModelMemStore
+import org.wit.soulsbuildplanner.console.models.BuildJSONStore
 import org.wit.soulsbuildplanner.console.models.BuildModel
-import org.wit.soulsbuildplanner.console.views.BuildView
 
 class BuildView {
 
@@ -27,7 +26,7 @@ class BuildView {
         return option
     }
 
-    fun listBuildModels(buildModels: BuildModelMemStore) {
+    fun listBuildModels(buildModels: BuildJSONStore) {
         println("List All Builds")
         println()
         buildModels.logAll()
