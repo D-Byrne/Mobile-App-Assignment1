@@ -1,7 +1,7 @@
 package org.wit.soulsbuildplanner.console.models
 
 import mu.KotlinLogging
-import org.wit.soulsbuildplanner.console.main.buildModels
+//import org.wit.soulsbuildplanner.console.main.buildModels
 
 private val logger = KotlinLogging.logger {}
 var lastId = 0L

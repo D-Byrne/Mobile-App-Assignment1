@@ -17,6 +17,25 @@ class BuildController {
         println("Souls Build Planner Kotlin App V1.0")
     }
 
+    fun start(){
+        var input: Int
+
+        do{
+            input = menu()
+            when(input) {
+                1 -> add()
+                2 -> update()
+                3 -> list()
+                4 -> search()
+                -99 -> dummyData()
+                -1 -> println("Exiting App")
+                else -> println("Invalid Option")
+            }
+            println()
+        } while (input != -1)
+        logger.info { "Shutting Down Console App"}
+    }
+
     fun menu(): Int { return buildView.menu() }
 
     fun add(){
