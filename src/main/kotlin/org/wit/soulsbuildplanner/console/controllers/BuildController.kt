@@ -28,7 +28,6 @@ class BuildController {
                 2 -> update()
                 3 -> list()
                 4 -> search()
-                -99 -> dummyData()
                 -1 -> println("Exiting App")
                 else -> println("Invalid Option")
             }
