@@ -44,33 +44,78 @@ class BuildView {
         println()
         print("Enter a Build Tile : ")
         buildModel.buildTitle = readLine()!!
-        print("Enter Vitality : ")
-        buildModel.vitality = readLine()!!.toInt()
+        print("Enter Vigor : ")
+        buildModel.vigor = readLine()!!.toInt()
+        print("Enter Attunement")
+        buildModel.attunement = readLine()!!.toInt()
         print("Enter Endurance : ")
         buildModel.endurance = readLine()!!.toInt()
+        print("Enter Vitality")
+        buildModel.vitality = readLine()!!.toInt()
+        print("Enter Strength : ")
+        buildModel.strength = readLine()!!.toInt()
+        print("Enter Dexterity : ")
+        buildModel.dexterity = readLine()!!.toInt()
+        print("Enter Intelligence : ")
+        buildModel.intelligence = readLine()!!.toInt()
+        print("Enter Faith : ")
+        buildModel.faith = readLine()!!.toInt()
+        print("Enter Luck : ")
+        buildModel.luck = readLine()!!.toInt()
 
-        return buildModel.buildTitle.isNotEmpty() && buildModel.vitality != null && buildModel.endurance != null
+
+
+        return buildModel.buildTitle.isNotEmpty() && buildModel.vigor != null && buildModel.attunement != null && buildModel.endurance != null && buildModel.vitality != null && buildModel.strength != null && buildModel.dexterity != null && buildModel.intelligence != null && buildModel.faith != null && buildModel.luck != null
     }
 
 
     fun updateBuildModelData(buildModel: BuildModel): Boolean {
         var tempBuildTitle: String?
-        var tempVitality: Int?
+        var tempVigor: Int?
+        var tempAttunement: Int?
         var tempEndurance: Int?
+        var tempVitality: Int?
+        var tempStrength: Int?
+        var tempDexterity: Int?
+        var tempIntelligence: Int?
+        var tempFaith: Int?
+        var tempLuck: Int?
+
 
         if (buildModel != null) {
             print("Enter a new title for [ " + buildModel.buildTitle + " ] : ")
             tempBuildTitle = readLine()!!
+            print("Enter a new Value for Vigor[ " + buildModel.vigor + " ] : ")
+            tempVigor = readLine()!!.toInt()
+            print("Enter a new Value for Attunement[ " + buildModel.attunement + " ] : ")
+            tempAttunement = readLine()!!.toInt()
+            print("Enter a new Value for Endurance[ " + buildModel.endurance + " ] : ")
+            tempEndurance = readLine()!!.toInt()
             print("Enter a new value for Vitality[ " + buildModel.vitality + " ] : ")
             tempVitality = readLine()!!.toInt()
-            print("Enter a new value for Endurance[ " + buildModel.endurance + " ] : ")
-            tempEndurance = readLine()!!.toInt()
+            print("Enter a new Value for Strength[ " + buildModel.strength + " ] : ")
+            tempStrength = readLine()!!.toInt()
+            print("Enter a new Value for Dexterity[ " + buildModel.dexterity + " ] : ")
+            tempDexterity = readLine()!!.toInt()
+            print("Enter a new Value for Intelligence[ " + buildModel.intelligence + " ] : ")
+            tempIntelligence = readLine()!!.toInt()
+            print("Enter a new value for Faith[ " + buildModel.faith + " ] : ")
+            tempFaith = readLine()!!.toInt()
+            print("Enter a new Value for Luck[ " + buildModel.luck + " ] : ")
+            tempLuck = readLine()!!.toInt()
 
 
-            if (!tempBuildTitle.isNullOrEmpty() && tempVitality != null && tempEndurance != null) {
+            if (!tempBuildTitle.isNullOrEmpty() && tempVigor != null && tempAttunement != null && tempEndurance != null && tempVitality != null && tempStrength != null && tempDexterity != null && tempIntelligence != null && tempFaith != null && tempLuck != null) {
                 buildModel.buildTitle = tempBuildTitle
-                buildModel.vitality = tempVitality
+                buildModel.vigor = tempVigor
+                buildModel.attunement = tempAttunement
                 buildModel.endurance = tempEndurance
+                buildModel.vitality = tempVitality
+                buildModel.strength = tempStrength
+                buildModel.dexterity = tempDexterity
+                buildModel.intelligence = tempIntelligence
+                buildModel.faith = tempFaith
+                buildModel.luck = tempLuck
                 return true
             }
         }

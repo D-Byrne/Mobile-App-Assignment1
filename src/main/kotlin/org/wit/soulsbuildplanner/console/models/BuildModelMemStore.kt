@@ -33,8 +33,15 @@ class BuildModelMemStore : BuildModelStore {
         var foundBuildModel = findOne(buildModel.id!!)
         if(foundBuildModel != null){
             foundBuildModel.buildTitle = buildModel.buildTitle
-            foundBuildModel.vitality = buildModel.vitality
+            foundBuildModel.vigor = buildModel.vigor
+            foundBuildModel.attunement = buildModel.attunement
             foundBuildModel.endurance = buildModel.endurance
+            foundBuildModel.vitality = buildModel.vitality
+            foundBuildModel.strength = buildModel.strength
+            foundBuildModel.dexterity = buildModel.dexterity
+            foundBuildModel.intelligence = buildModel.intelligence
+            foundBuildModel.faith = buildModel.faith
+            foundBuildModel.luck = buildModel.luck
         }
     }
 

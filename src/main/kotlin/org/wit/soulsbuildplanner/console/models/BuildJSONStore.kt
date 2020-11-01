@@ -45,8 +45,15 @@ class BuildJSONStore: BuildModelStore {
         var foundBuild = findOne(buildModel.id!!)
         if(foundBuild != null){
             foundBuild.buildTitle = buildModel.buildTitle
-            foundBuild.vitality = buildModel.vitality
+            foundBuild.vigor = buildModel.vigor
+            foundBuild.attunement = buildModel.attunement
             foundBuild.endurance = buildModel.endurance
+            foundBuild.vitality = buildModel.vitality
+            foundBuild.strength = buildModel.strength
+            foundBuild.dexterity = buildModel.dexterity
+            foundBuild.intelligence = buildModel.intelligence
+            foundBuild.faith = buildModel.faith
+            foundBuild.luck = buildModel.luck
         }
         serialize()
     }

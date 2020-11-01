@@ -1,14 +1,28 @@
 [
   {
-    "id": -6111635628421179093,
+    "id": -979948568326241099,
     "buildTitle": "Strength",
-    "vitality": 25,
-    "endurance": 35
+    "vigor": 40,
+    "attunement": 15,
+    "endurance": 35,
+    "vitality": 15,
+    "strength": 40,
+    "dexterity": 20,
+    "intelligence": 9,
+    "faith": 7,
+    "luck": 7
   },
   {
-    "id": 7147381157424416162,
+    "id": 4706404085777742234,
     "buildTitle": "Dexterity",
+    "vigor": 35,
+    "attunement": 15,
+    "endurance": 40,
     "vitality": 40,
-    "endurance": 40
+    "strength": 35,
+    "dexterity": 40,
+    "intelligence": 10,
+    "faith": 7,
+    "luck": 10
   }
 ]
