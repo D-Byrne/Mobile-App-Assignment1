@@ -2,7 +2,6 @@ package org.wit.soulsbuildplanner.console.controllers
 
 import mu.KotlinLogging
 import org.wit.soulsbuildplanner.console.models.BuildJSONStore
-import org.wit.soulsbuildplanner.console.models.BuildModelMemStore
 import org.wit.soulsbuildplanner.console.models.BuildModel
 import org.wit.soulsbuildplanner.console.views.BuildView
 
