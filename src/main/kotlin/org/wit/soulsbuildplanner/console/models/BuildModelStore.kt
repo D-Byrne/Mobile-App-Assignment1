@@ -5,4 +5,5 @@ interface BuildModelStore {
     fun findOne(id: Long): BuildModel?
     fun create(buildModel: BuildModel)
     fun update(buildModel: BuildModel)
+    fun delete(buildModel: BuildModel)
 }

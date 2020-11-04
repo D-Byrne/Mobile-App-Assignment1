@@ -27,6 +27,7 @@ class BuildController {
                 2 -> update()
                 3 -> list()
                 4 -> search()
+                5 -> delete()
                 -1 -> println("Exiting App")
                 else -> println("Invalid Option")
             }
@@ -75,6 +76,20 @@ class BuildController {
     fun search(id: Long): BuildModel?{
         var foundBuild = builds.findOne(id)
         return foundBuild
+    }
+
+    fun delete() {
+        buildView.listBuildModels(builds)
+        var searchId = buildView.getId()
+        val aBuild = search(searchId)
+
+        if(aBuild != null) {
+            builds.delete(aBuild)
+            println("Placemark Deleted...")
+            buildView.listBuildModels(builds)
+        }
+        else
+            println("Placemark Not Deleted...")
     }
 
     fun dummyData() {

@@ -23,6 +23,18 @@ class UIController : Controller() {
         logger.info("Build Added")
     }
 
+    fun delete(_delId : Long){
+        var delId = _delId
+        val toDelete = builds.findOne(delId)
+
+        if(toDelete != null){
+            builds.delete(toDelete)
+            logger.info("Build Deleted")
+        }else
+            logger.info("Build Not Deleted")
+
+    }
+
     fun loadListScreen() {
         runLater {
             find(UIMenu::class).replaceWith(UIListMenu::class, sizeToScene = true, centerOnScreen = true)

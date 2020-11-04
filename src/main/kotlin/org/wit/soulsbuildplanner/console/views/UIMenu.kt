@@ -24,7 +24,7 @@ class UIMenu : View("Souls Build Planner Main Menu") {
                 }
             }
             text("")
-            button("List Builds") {
+            button("List/Delete Builds") {
 
                 isDefaultButton = true
                 useMaxWidth = true

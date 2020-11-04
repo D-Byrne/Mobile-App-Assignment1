@@ -14,6 +14,7 @@ class BuildView {
         println(" 2. Update Build")
         println(" 3. List All Builds")
         println(" 4. Search Builds")
+        println(" 5. Delete Build")
         println("-1. Exit")
         println()
         print("Enter Option : ")

@@ -57,6 +57,11 @@ class BuildJSONStore: BuildModelStore {
         serialize()
     }
 
+    override fun delete(buildModel: BuildModel){
+        builds.remove(buildModel)
+        serialize()
+    }
+
     internal fun logAll(){
         builds.forEach{ logger.info("${it}") }
     }
