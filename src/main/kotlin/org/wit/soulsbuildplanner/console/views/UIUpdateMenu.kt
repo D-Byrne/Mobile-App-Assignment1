@@ -100,5 +100,19 @@ class UIUpdateMenu : View("Update Builds") {
         }
     }
 
+    override fun onDock(){
+        _updateId.value = ""
+        _buildTitle.value = ""
+        _vigor.value = ""
+        _attunement.value = ""
+        _endurance.value = ""
+        _vitality.value = ""
+        _strength.value = ""
+        _dexterity.value = ""
+        _intelligence.value = ""
+        _faith.value = ""
+        _luck.value = ""
+    }
+
 
 }

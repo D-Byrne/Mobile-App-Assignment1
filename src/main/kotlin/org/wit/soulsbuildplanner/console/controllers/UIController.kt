@@ -25,8 +25,8 @@ class UIController : Controller() {
     }
 
     fun delete(_delId : Long){
-        var delId = _delId
-        val toDelete = builds.findOne(delId)
+      //  var delId = _delId
+        val toDelete = builds.findOne(_delId)
 
         if(toDelete != null){
             builds.delete(toDelete)
@@ -69,6 +69,7 @@ class UIController : Controller() {
         runLater{
             find(UIMenu::class).replaceWith(UIUpdateMenu::class, sizeToScene = true, centerOnScreen = true)
         }
+        builds.logAll()
     }
 
     fun closeAdd() {

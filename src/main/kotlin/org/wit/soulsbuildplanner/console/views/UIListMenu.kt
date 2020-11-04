@@ -64,6 +64,7 @@ class UIListMenu : View("List Builds") {
 
     override fun onDock(){
         _delId.value = ""
+        model.clearDecorators()
     }
 
 
