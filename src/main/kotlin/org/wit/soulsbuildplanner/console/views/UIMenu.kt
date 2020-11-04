@@ -35,6 +35,15 @@ class UIMenu : View("Souls Build Planner Main Menu") {
                 }
             }
             text("")
+            button("Update Build"){
+
+                isDefaultButton = true
+                useMaxWidth = true
+                action{
+                    uiController.loadUpdateScreen()
+                }
+            }
+            text("")
             button("Exit") {
 
                 isDefaultButton = true
