@@ -15,7 +15,7 @@ class UIController : Controller() {
     val logger = KotlinLogging.logger {}
 
     init {
-        logger.info { "Launching Placemark TornadoFX UI App" }
+        logger.info { "Launching Souls Build Planner TornadoFX UI App" }
     }
     fun add(_buildTitle : String, _vigor : String, _attunement : String, _endurance : String, _vitality : String, _strength : String, _dexterity : String, _intelligence : String, _faith : String, _luck : String){
 

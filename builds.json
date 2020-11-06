@@ -14,15 +14,15 @@
   },
   {
     "id": -979948568326241099,
-    "buildTitle": "Strength",
-    "vigor": 40,
-    "attunement": 15,
-    "endurance": 35,
-    "vitality": 15,
-    "strength": 40,
-    "dexterity": 20,
-    "intelligence": 9,
-    "faith": 7,
-    "luck": 7
+    "buildTitle": "Updated",
+    "vigor": 3,
+    "attunement": 3,
+    "endurance": 3,
+    "vitality": 3,
+    "strength": 3,
+    "dexterity": 3,
+    "intelligence": 3,
+    "faith": 3,
+    "luck": 3
   }
 ]
