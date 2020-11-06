@@ -88,31 +88,31 @@ class UIUpdateMenu : View("Update Builds") {
                         uiController.update(_updateId.value.toLong(),_buildTitle.value, _vigor.value, _attunement.value, _endurance.value, _vitality.value, _strength.value, _dexterity.value, _intelligence.value, _faith.value, _luck.value  )
                     }
                 }
-//                button("Close") {
-//                    useMaxWidth = true
-//                    action {
-//                        runAsyncWithProgress {
-//                            uiController.closeUpdate()
-//                        }
-//                    }
-//                }
+                button("Close") {
+                    useMaxWidth = true
+                    action {
+                        runAsyncWithProgress {
+                            uiController.closeUpdate()
+                        }
+                    }
+                }
             }
         }
     }
 
-//    override fun onDock(){
-//        _updateId.value = ""
-//        _buildTitle.value = ""
-//        _vigor.value = ""
-//        _attunement.value = ""
-//        _endurance.value = ""
-//        _vitality.value = ""
-//        _strength.value = ""
-//        _dexterity.value = ""
-//        _intelligence.value = ""
-//        _faith.value = ""
-//        _luck.value = ""
-//    }
+    override fun onDock(){
+        _updateId.value = ""
+        _buildTitle.value = ""
+        _vigor.value = ""
+        _attunement.value = ""
+        _endurance.value = ""
+        _vitality.value = ""
+        _strength.value = ""
+        _dexterity.value = ""
+        _intelligence.value = ""
+        _faith.value = ""
+        _luck.value = ""
+    }
 
 
 }
